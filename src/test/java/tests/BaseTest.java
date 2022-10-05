@@ -43,8 +43,8 @@ public class BaseTest {
     public WebDriverWait getWebDriverWait() {
         return webDriverWait;
     }
-   // @AfterClass
-    //public void afterClass () {
-     //  driver.quit();
- // }
+   @AfterClass
+    public void afterClass () {
+     driver.quit();
+ }
 }
