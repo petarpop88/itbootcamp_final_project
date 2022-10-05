@@ -1,11 +1,13 @@
 package tests;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import pages.HomePage;
 import pages.LoginPage;
 
 import java.time.Duration;
@@ -15,7 +17,9 @@ public class BaseTest {
     protected WebDriver driver;
     private WebDriverWait webDriverWait;
     protected LoginPage loginPage;
+    protected Faker faker;
 
+    protected HomePage homePage;
 
     @BeforeClass
     public void beforeClass () {
@@ -23,6 +27,8 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
         loginPage = new LoginPage(driver, webDriverWait);
+        homePage = new HomePage(driver, webDriverWait);
+        faker = new Faker();
         driver.manage().window().maximize();
 
 
@@ -37,8 +43,8 @@ public class BaseTest {
     public WebDriverWait getWebDriverWait() {
         return webDriverWait;
     }
-    @AfterClass
-    public void afterClass () {
-       driver.quit();
-   }
+   // @AfterClass
+    //public void afterClass () {
+     //  driver.quit();
+ // }
 }

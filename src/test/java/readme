@@ -13,9 +13,8 @@ Preporuka je da sav kod i poruke komitova budu na engleskom.
 Obavezno korišćenje wait-era koji će čekati otvaranje dijaloga ili slična učitavanja.
 
 Osnovna klasa koju svaki test da nasledjuje. Ova klasa treba da ima:
-•	baseUrl - url stranice https://vue-demo.daniel-avellaneda.com/
-•	beforeClass - gde se podesava drajver sa implicitnim cekanjem
-    i cekanjem za ucitavanje stranice i kreiraju svi pagevi potrebni za testiranje
+•	baseUrl - url stranice https://vue-demo.daniel-avellaneda.com
+•	beforeClass - gde se podesava drajver sa implicitnim cekanjem i cekanjem za ucitavanje stranice i kreiraju svi pagevi potrebni za testiranje
 •	aftterClass - gde se gasi stranica
 •	beforeMethod - gde se pre svakog testa ucitava baseUrl stranica
 
@@ -42,9 +41,10 @@ asssert:
 •	Verifikovati da se u url-u stranice javlja /login ruta
 
 Test #4: Displays errors when password is wrong
-Podaci: random email i password koristeći faker libarary
+Podaci: existing email i wrong password koristeći faker libarary
 asssert:
 •	Verifikovati da greska sadrzi poruku Wrong password
+//lose je napisano.. koristi ispravan email da bi dobio poruku wrong pass
 •	Verifikovati da se u url-u stranice javlja /login ruta
 
 Test #5: Login
@@ -57,7 +57,7 @@ asssert:
 Test #6: Logout
 assert:
 •	Verifikovati da je dugme logout vidljivo na stranici
-•	Verifikovati da se u url-u stranice javlja /login ruta
+•	Verifikovati da se u url-u stranice javlja-in ruta
 •	Verifikovati da se nakon pokušaja otvaranja /home rute, u url-u stranice javlja /login ruta
 Signup Tests
 

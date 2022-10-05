@@ -14,8 +14,12 @@ public class LoginPage extends BasePage {
     private By loginPageClick = By.xpath ("//*[@id=\"app\"]/div/div/header/div/div[3]/a[3]");
 
     private By errorMessage = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]");
-
     private By userDoesntExist = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li");
+
+    private By wrongPasswordMessage = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li");
+
+    //private By logOutButton = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]/span");
+
 
     public LoginPage(WebDriver webDriver, WebDriverWait webDriverWait) {
         super(webDriver, webDriverWait);
@@ -28,17 +32,21 @@ public class LoginPage extends BasePage {
     }
     public WebElement getLoginButton() {
         return getWebDriver().findElement(loginButton);
-
     }
     public WebElement getLoginPageClick() {
         return getWebDriver().findElement(loginPageClick);
     }
-    public WebElement errorMessage () {
+    public WebElement getErrorMessage () {
         return getWebDriver().findElement(errorMessage);
     }
-    public WebElement userDoesntExist () {
+    public WebElement getUserDoesntExist () {
         return getWebDriver().findElement(userDoesntExist);
     }
+    public WebElement getWrongPasswordMessage () { return getWebDriver().findElement(wrongPasswordMessage);
+    }
+    //public WebElement getLogOutButton () { return getWebDriver().findElement(logOutButton);
+    //}
+
     //methods
     public void clickOnloginPage () {
         getLoginPageClick().click();
@@ -50,5 +58,6 @@ public class LoginPage extends BasePage {
         getLoginButton().click();
 
     }
+
 
 }
