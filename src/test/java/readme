@@ -1,3 +1,4 @@
+
 Projekat: Testiranje aplikacije https://vue-demo.daniel-avellaneda.com/
 Rok za izradu projekta: 12.10.2022. do 22:00h
 Zadatak:
@@ -41,10 +42,9 @@ asssert:
 •	Verifikovati da se u url-u stranice javlja /login ruta
 
 Test #4: Displays errors when password is wrong
-Podaci: existing email i wrong password koristeći faker libarary
+Podaci: random email i password koristeći faker libarary
 asssert:
 •	Verifikovati da greska sadrzi poruku Wrong password
-//lose je napisano.. koristi ispravan email da bi dobio poruku wrong pass
 •	Verifikovati da se u url-u stranice javlja /login ruta
 
 Test #5: Login
@@ -57,7 +57,7 @@ asssert:
 Test #6: Logout
 assert:
 •	Verifikovati da je dugme logout vidljivo na stranici
-•	Verifikovati da se u url-u stranice javlja-in ruta
+•	Verifikovati da se u url-u stranice javlja /login ruta
 •	Verifikovati da se nakon pokušaja otvaranja /home rute, u url-u stranice javlja /login ruta
 Signup Tests
 
@@ -107,7 +107,8 @@ assert:
 •	Verifikovati da poruka sadrzi tekst Saved successfully
 
 Test #3: Edit city
-Podaci: edituje se grad koji je u testu 2 kreiran na isto ime + - edited (primer: Beograd – Beograd edited)
+Podaci: edituje se grad koji je u testu 2 kreiran na isto ime + - edited
+(primer: Beograd – Beograd edited)
 assert:
 •	Verifikovati da poruka sadrzi tekst Saved successfully
 
@@ -115,7 +116,8 @@ assert:
 Test #4: Search city
 Podaci: editovani grad iz testa #3
 assert:
-•	Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
+•	Verifikovati da se u Name koloni prvog reda
+nalazi tekst iz pretrage
 
 
 

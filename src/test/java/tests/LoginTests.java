@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,18 +17,13 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-
-
     @Test (priority = 1)
-    //Test #1: Visits the login1 page
+    //#1: Visits the login1 page
     public void testVisitLoginPage () {
 
         String expectedResult = "/login";
-
         loginPage.clickOnloginPage();
-
         String actualResult = driver.getCurrentUrl();
-
         Assert.assertTrue(actualResult.contains(expectedResult));
     }
 
@@ -70,7 +67,7 @@ public class LoginTests extends BaseTest {
     public void testWrongPassword () {
 
         loginPage.clickOnloginPage();
-        loginPage.getEmail().sendKeys("petarpop88@gmail.com");
+        loginPage.getEmail().sendKeys("admin@admin.com");
         loginPage.getPassword().sendKeys(faker.internet().password());
         loginPage.getLoginButton().click();
 
@@ -91,7 +88,7 @@ public class LoginTests extends BaseTest {
     public void login () {
 
         loginPage.clickOnloginPage();
-        loginPage.login("petarpop88@gmail.com", "WgU^21ngok93");
+        loginPage.login("admin@admin.com", "12345");
 
         String expectedRoute3 = "/login";
         String actualResultUrl3 = driver.getCurrentUrl();
