@@ -1,13 +1,8 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.sql.SQLOutput;
-import java.util.logging.SocketHandler;
 
 public class CitiesTests extends BaseTest {
 
@@ -17,6 +12,7 @@ public class CitiesTests extends BaseTest {
     // verify that logout button is visible
     // verify that admin page url contains /admin/cities
     public void visitAdminPage() {
+
 
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
@@ -31,6 +27,7 @@ public class CitiesTests extends BaseTest {
         Assert.assertTrue(actualResultUrl.contains(expectedResultRoute));
 
     }
+
 
     @Test(priority = 2)
     //#2: Create new city
@@ -55,6 +52,7 @@ public class CitiesTests extends BaseTest {
         Assert.assertTrue(actualResultSucces.contains(expectedResultSucces));
 
     }
+
 
     @Test(priority = 3)
     //#3: Edit city
@@ -97,10 +95,12 @@ public class CitiesTests extends BaseTest {
         Assert.assertEquals(adminCitiesPage.getEditedCityName().getText(), expectedResultEditedCity);
 
 
-
-
-
-
     }
 
+
 }
+
+
+
+
+
