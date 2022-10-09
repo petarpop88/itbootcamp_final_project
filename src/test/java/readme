@@ -16,7 +16,7 @@ Obavezno korišćenje wait-era koji će čekati otvaranje dijaloga ili slična u
 Osnovna klasa koju svaki test da nasledjuje. Ova klasa treba da ima:
 •	baseUrl - url stranice https://vue-demo.daniel-avellaneda.com
 •	beforeClass - gde se podesava drajver sa implicitnim cekanjem i cekanjem za ucitavanje stranice i kreiraju svi pagevi potrebni za testiranje
-•	aftterClass - gde se gasi stranica
+•	afterClass - gde se gasi stranica
 •	beforeMethod - gde se pre svakog testa ucitava baseUrl stranica
 
 Navedene su samo obavezne assertacije, po potrebi dodajte dodatne.
@@ -118,8 +118,6 @@ Podaci: editovani grad iz testa #3
 assert:
 •	Verifikovati da se u Name koloni prvog reda
 nalazi tekst iz pretrage
-
-
 
 Test #5: Delete city
 Podaci: editovani grad iz testa #3

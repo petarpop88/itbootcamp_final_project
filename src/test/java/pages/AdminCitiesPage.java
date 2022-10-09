@@ -1,8 +1,10 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdminCitiesPage extends BasePage {
@@ -35,6 +37,8 @@ public class AdminCitiesPage extends BasePage {
         return getWebDriver().findElement(newItemButton);
     }
     public WebElement getEnterNewCityNameField() {
+       // WebElement element = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(enterNewCityNameField));
+        //return element;
         return getWebDriver().findElement(enterNewCityNameField);
     }
     public WebElement getSavedSucces() {

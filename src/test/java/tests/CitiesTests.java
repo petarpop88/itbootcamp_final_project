@@ -1,5 +1,8 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -31,7 +34,7 @@ public class CitiesTests extends BaseTest {
 
     @Test(priority = 2)
     //#2: Create new city
-    public void createNewCity() throws InterruptedException {
+    public void createNewCity() {
 
         String expectedResultSucces = "Saved successfully";
 
@@ -43,7 +46,7 @@ public class CitiesTests extends BaseTest {
         adminCitiesPage.getCitiesButton().click();
         adminCitiesPage.getNewItemButton().click();
 
-        Thread.sleep(5000);
+
         adminCitiesPage.getEnterNewCityNameField().sendKeys(faker.gameOfThrones().city());
         adminCitiesPage.getSaveButton().click();
 
@@ -56,31 +59,26 @@ public class CitiesTests extends BaseTest {
 
     @Test(priority = 3)
     //#3: Edit city
-    public void editCity() throws InterruptedException {
+    public void editCity() {
 
         String expectedResultSucces2 = "Saved successfully";
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
-
         adminCitiesPage.getAdminButton().click();
         adminCitiesPage.getCitiesButton().click();
-
         adminCitiesPage.getActionEdit().click();
-        Thread.sleep(5000);
 
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
         adminCitiesPage.getEditField().sendKeys(" - edited");
-        Thread.sleep(2000);
         adminCitiesPage.getSaveButtonEditItem().click();
 
-        Thread.sleep(2000);
         Assert.assertTrue(adminCitiesPage.getSavedSuccesEditedItem().getText().contains(expectedResultSucces2));
-
 
     }
 
     @Test(priority = 4)
     //#4: Search city
-    public void searchCity() throws InterruptedException {
+    public void searchCity()  {
 
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
@@ -88,7 +86,7 @@ public class CitiesTests extends BaseTest {
         adminCitiesPage.getAdminButton().click();
         adminCitiesPage.getCitiesButton().click();
 
-        Thread.sleep(4000);
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search")));
         adminCitiesPage.getSearchField().sendKeys(adminCitiesPage.getEditedCityName().getText());
 
         String expectedResultEditedCity = adminCitiesPage.getEditedCityName().getText();
@@ -96,6 +94,20 @@ public class CitiesTests extends BaseTest {
 
 
     }
+
+    /*
+    @Test (priority = 5)
+    //#5: Delete city
+    public void deleteCity () {
+        loginPage.clickOnloginPage();
+        loginPage.login("admin@admin.com", "12345");
+
+        adminCitiesPage.getAdminButton().click();
+        adminCitiesPage.getCitiesButton().click();
+
+    }
+    */
+
 
 
 }
