@@ -38,8 +38,8 @@ assert:
 Test #3: Displays errors when user does not exist
 Podaci: random email i password koristeći faker libarary
 asssert:
-•	Verifikovati da greska sadrzi poruku User does not exists
-•	Verifikovati da se u url-u stranice javlja /login ruta
+Verifikovati da greska sadrzi poruku User does not exists
+Verifikovati da se u url-u stranice javlja /login ruta
 
 Test #4: Displays errors when password is wrong
 Podaci: random email i password koristeći faker libarary
@@ -124,7 +124,8 @@ Podaci: editovani grad iz testa #3
 assert:
 •	U polje za pretragu uneti staro ime grada
 •	Sacekati da broj redova u tabeli bude 1
-•	Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
+•	Verifikovati da se u Name koloni prvog reda
+nalazi tekst iz pretrage
 •	Kliknuti na dugme Delete iz prvog reda
 •	Sacekati da se dijalog za brisanje pojavi
 •	Kliknuti na dugme Delete iz dijaloga
@@ -167,7 +168,7 @@ assert:
 
 Test #3: Set locale to FR
 assert:
-•	Postaviti jezik na FR
+•	Postaviti jezik na FR+
 •	Verifikovati da se na stranici u hederu javlja tekst Page d'atterrissage
 
 

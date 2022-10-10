@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -13,12 +12,13 @@ import pages.*;
 import java.time.Duration;
 
 public class BaseTest {
-    String baseUrl = "https://vue-demo.daniel-avellaneda.com";
-    String home = "https://vue-demo.daniel-avellaneda.com/home";
-    String profile = "https://vue-demo.daniel-avellaneda.com/profile";
-    String adminCities = "https://vue-demo.daniel-avellaneda.com/admin/cities";
+    protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
 
-    String adminUsers = "https://vue-demo.daniel-avellaneda.com/admin/users";
+    //url's for auth routes tests
+    protected String home = "https://vue-demo.daniel-avellaneda.com/home";
+    protected String profile = "https://vue-demo.daniel-avellaneda.com/profile";
+    protected String adminCities = "https://vue-demo.daniel-avellaneda.com/admin/cities";
+    protected String adminUsers = "https://vue-demo.daniel-avellaneda.com/admin/users";
     protected WebDriver driver;
 
     protected WebDriverWait webDriverWait;
@@ -42,27 +42,26 @@ public class BaseTest {
         adminCitiesPage = new AdminCitiesPage(driver, webDriverWait);
         localePage = new LocalePage(driver, webDriverWait);
         signUpPage = new SignUpPage(driver, webDriverWait);
-
         faker = new Faker();
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+
     }
 
     @BeforeMethod
     public void beforeMethod() {
         driver.get(baseUrl);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
     }
-
 
     @AfterClass
     public void afterClass() {
         driver.quit();
     }
 
-
-    /*@AfterMethod
+/*
+    @AfterMethod
     public void logOutUser() {
         homePage.getLogOutButton().click();
     }
-    */
+*/
 }

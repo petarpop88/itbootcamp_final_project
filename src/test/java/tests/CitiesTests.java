@@ -1,7 +1,6 @@
 package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,12 +9,11 @@ import org.testng.annotations.Test;
 public class CitiesTests extends BaseTest {
 
 
-    @Test(priority = 1)
+    @Test
     //#1: Visits the admin cities page and verify:
     // verify that logout button is visible
     // verify that admin page url contains /admin/cities
     public void visitAdminPage() {
-
 
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
@@ -31,8 +29,7 @@ public class CitiesTests extends BaseTest {
 
     }
 
-
-    @Test(priority = 2)
+    @Test
     //#2: Create new city
     public void createNewCity() {
 
@@ -57,7 +54,7 @@ public class CitiesTests extends BaseTest {
     }
 
 
-    @Test(priority = 3)
+    @Test
     //#3: Edit city
     public void editCity() {
 
@@ -76,9 +73,9 @@ public class CitiesTests extends BaseTest {
 
     }
 
-    @Test(priority = 4)
+    @Test
     //#4: Search city
-    public void searchCity()  {
+    public void searchCity() {
 
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
@@ -95,19 +92,23 @@ public class CitiesTests extends BaseTest {
 
     }
 
-    /*
-    @Test (priority = 5)
+    @Test
     //#5: Delete city
-    public void deleteCity () {
-        loginPage.clickOnloginPage();
+    public void deleteCity() {
+
+        /*loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
 
         adminCitiesPage.getAdminButton().click();
         adminCitiesPage.getCitiesButton().click();
 
-    }
-    */
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search")));
+        adminCitiesPage.getSearchField().sendKeys(adminCitiesPage.getEditedCityName().getText());
 
+        String actualResult = adminCitiesPage.getSearchField().getText();
+
+*/
+    }
 
 
 }

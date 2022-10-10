@@ -1,15 +1,12 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LocaleTest extends BaseTest {
 
 
-    @Test(priority = 1)
+    @Test
     //#1: Set locale to ES
     public void setLocaleToEs() {
 
@@ -22,7 +19,7 @@ public class LocaleTest extends BaseTest {
         Assert.assertEquals(expectedResultEs, actualResultEs);
     }
 
-    @Test(priority = 2)
+    @Test
     //#2: Set locale to EN
     public void setLocaleToEN() {
 
@@ -36,7 +33,7 @@ public class LocaleTest extends BaseTest {
 
     }
 
-    @Test(priority = 3)
+    @Test
     //#3: Set locale to FR
     public void setLocaleToFR() {
 

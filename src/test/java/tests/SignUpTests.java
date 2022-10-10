@@ -4,12 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.BasePage;
 
 public class SignUpTests extends BaseTest {
 
 
-    @Test(priority = 1)
+    @Test
     //#1: Visits the signup page
     public void signUpPageVisit() {
 
@@ -20,7 +19,7 @@ public class SignUpTests extends BaseTest {
 
     }
 
-    @Test(priority = 2)
+    @Test
     // #2: Checks input types
     public void checkInputTypes() {
 
@@ -36,7 +35,7 @@ public class SignUpTests extends BaseTest {
 
     }
 
-    @Test(priority = 3)
+    @Test
     // #3: Displays errors when user already exists
     public void userExist() {
 
@@ -50,7 +49,8 @@ public class SignUpTests extends BaseTest {
         String actualResult = driver.getCurrentUrl();
         Assert.assertTrue(actualResult.contains(expectedResult));
     }
-    @Test(priority = 4)
+
+    @Test
     // #4: Signup
     public void signUp() {
 
@@ -66,7 +66,6 @@ public class SignUpTests extends BaseTest {
 
 
     }
-
 
 
 }

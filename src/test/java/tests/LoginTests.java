@@ -1,25 +1,14 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-
-import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-    @Test (priority = 1)
+    @Test
     //#1: Visits the login1 page
-    public void testVisitLoginPage () {
+    public void visitLoginPage() {
 
         String expectedResult = "/login";
         loginPage.clickOnloginPage();
@@ -27,29 +16,30 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(actualResult.contains(expectedResult));
     }
 
-    @Test (priority = 2)
+    @Test
     //#2: Checks input types
-    public void testChecksInputTypes () {
+    public void checksInputTypes() {
 
         String expectedResultEmail = "email";
         String expectedResultPassword = "password";
 
         loginPage.clickOnloginPage();
 
-        String actualResultEmail = getDriver().findElement(By.id("email")).getAttribute("type");
-        String actualResultPassword = getDriver().findElement(By.id("password")).getAttribute("type");
+        String actualResultEmail = driver.findElement(By.id("email")).getAttribute("type");
+        String actualResultPassword = driver.findElement(By.id("password")).getAttribute("type");
 
         Assert.assertEquals(expectedResultEmail, actualResultEmail);
-        Assert.assertEquals(expectedResultPassword,actualResultPassword);
+        Assert.assertEquals(expectedResultPassword, actualResultPassword);
 
     }
 
-    @Test (priority = 3)
+    @Test
     //#3: Displays errors when user does not exist
-    public void testUserNotFound () {
+    public void userNotFound() {
 
         String expectedResultMessage = "User does not exists";
         String expectedRoute = "/login";
+
         loginPage.clickOnloginPage();
         loginPage.login(faker.internet().emailAddress(), faker.internet().password());
 
@@ -61,10 +51,9 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(actualResultUrl.contains(expectedRoute));
     }
 
-    @Test (priority = 4)
+    @Test
     //#4: Displays errors when password is wrong
-    // in order to get wrong password error message, we need to use existing email!
-    public void testWrongPassword () {
+    public void wrongPassword() {
 
         loginPage.clickOnloginPage();
         loginPage.getEmail().sendKeys("admin@admin.com");
@@ -83,9 +72,9 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(actualResultUrl2.contains(expectedRoute2));
     }
 
-    @Test (priority = 5)
+    @Test
     //#5: Login
-    public void login () {
+    public void login() {
 
         loginPage.clickOnloginPage();
         loginPage.login("admin@admin.com", "12345");
@@ -96,9 +85,9 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(actualResultUrl3.contains(expectedRoute3));
     }
 
-    @Test (priority = 6)
+    @Test
     //#6: Logout
-    public void logOut () {
+    public void logOut() {
 
         //verify that attempt to open /home route page redirect to /login route
         driver.get("https://vue-demo.daniel-avellaneda.com/home");
@@ -107,7 +96,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(actualResultUrl4.contains(expectedRoute4));
 
         loginPage.clickOnloginPage();
-        loginPage.login("admin@admin.com",  "12345");
+        loginPage.login("admin@admin.com", "12345");
 
         Assert.assertTrue(homePage.getLogOutButton().isDisplayed());
 

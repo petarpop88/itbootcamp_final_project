@@ -27,28 +27,33 @@ public class SignUpPage extends BasePage {
     public WebElement getNameField() {
         return getWebDriver().findElement(nameField);
     }
+
     public WebElement getEmailField() {
         return getWebDriver().findElement(emailField);
     }
+
     public WebElement getPasswordField() {
         return getWebDriver().findElement(passwordField);
     }
+
     public WebElement getConfirmPasswordField() {
         return getWebDriver().findElement(confirmPasswordField);
     }
+
     public WebElement getSignMeUpButton() {
         return getWebDriver().findElement(signMeUpButton);
     }
-    public WebElement getEmailExist () {
+
+    public WebElement getEmailExist() {
         return getWebDriver().findElement(eMailExist);
     }
 
-    public WebElement getImportantMsg () {
+    public WebElement getImportantMsg() {
         return getWebDriver().findElement(importantMsg);
     }
 
     //methods
-    public void userCantSignUpWithExistingEmail () {
+    public void userCantSignUpWithExistingEmail() {
         String name = "Test Test";
         String email = "admin@admin.com";
         String password = "123654";
@@ -61,7 +66,8 @@ public class SignUpPage extends BasePage {
         getSignMeUpButton().click();
 
     }
-    public void signUp (String name, String email, String password, String confirmPassword) {
+
+    public void signUp(String name, String email, String password, String confirmPassword) {
 
         getNameField().sendKeys(name);
         getEmailField().sendKeys(email);

@@ -22,6 +22,7 @@ public class AdminCitiesPage extends BasePage {
     private By searchField = By.id("search");
     private By editedCityName = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[2]");
 
+    private By nameColumnCity = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr/td[2]");
 
     public AdminCitiesPage(WebDriver webDriver, WebDriverWait webDriverWait) {
         super(webDriver, webDriverWait);
@@ -30,33 +31,42 @@ public class AdminCitiesPage extends BasePage {
     public WebElement getAdminButton() {
         return getWebDriver().findElement(adminButton);
     }
+
     public WebElement getCitiesButton() {
         return getWebDriver().findElement(citiesButton);
     }
+
     public WebElement getNewItemButton() {
         return getWebDriver().findElement(newItemButton);
     }
-    public WebElement getEnterNewCityNameField() {
-       // WebElement element = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(enterNewCityNameField));
-        //return element;
-        return getWebDriver().findElement(enterNewCityNameField);
-    }
+
+    public WebElement getEnterNewCityNameField() {return getWebDriver().findElement(enterNewCityNameField);}
+
     public WebElement getSavedSucces() {
         return getWebDriver().findElement(savedSucces);
     }
+
     public WebElement getSaveButton() {return getWebDriver().findElement(saveButton);}
+
     public WebElement getActionEdit() {
         return getWebDriver().findElement(actionEdit);
     }
+
     public WebElement getEditField() {
         return getWebDriver().findElement(editField);
     }
+
     public WebElement getSaveButtonEditItem() {
         return getWebDriver().findElement(saveButtonEditItem);
     }
-    public WebElement getSavedSuccesEditedItem() {return getWebDriver().findElement(savedSuccesEditedItem);}
+
+    public WebElement getSavedSuccesEditedItem() { return getWebDriver().findElement(savedSuccesEditedItem);}
+
     public WebElement getSearchField() {return getWebDriver().findElement(searchField);}
+
     public WebElement getEditedCityName() {return getWebDriver().findElement(editedCityName);}
+
+    public WebElement getNameColumnCity() {return getWebDriver().findElement(nameColumnCity);}
 
 }
 
