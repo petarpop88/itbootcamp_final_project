@@ -19,6 +19,7 @@ public class BaseTest {
     protected String profile = "https://vue-demo.daniel-avellaneda.com/profile";
     protected String adminCities = "https://vue-demo.daniel-avellaneda.com/admin/cities";
     protected String adminUsers = "https://vue-demo.daniel-avellaneda.com/admin/users";
+
     protected WebDriver driver;
 
     protected WebDriverWait webDriverWait;
@@ -30,6 +31,7 @@ public class BaseTest {
     protected LocalePage localePage;
     protected SignUpPage signUpPage;
 
+    protected EditProfile editProfile;
     @BeforeClass
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Local\\webdriver/chromedriver.exe");
@@ -42,6 +44,7 @@ public class BaseTest {
         adminCitiesPage = new AdminCitiesPage(driver, webDriverWait);
         localePage = new LocalePage(driver, webDriverWait);
         signUpPage = new SignUpPage(driver, webDriverWait);
+        editProfile = new EditProfile(driver, webDriverWait);
         faker = new Faker();
 
     }
@@ -53,7 +56,7 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-    @AfterClass
+    /*@AfterClass
     public void afterClass() {
         driver.quit();
     }

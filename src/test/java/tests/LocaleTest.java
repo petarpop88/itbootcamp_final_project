@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 public class LocaleTest extends BaseTest {
 
-
     @Test
     //#1: Set locale to ES
     public void setLocaleToEs() {

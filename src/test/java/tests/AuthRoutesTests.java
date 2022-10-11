@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 public class AuthRoutesTests extends BaseTest {
 
-
     @Test
     //#1: Forbids visits to home url if not authenticated
     // home page redirect to login page when user is not logged

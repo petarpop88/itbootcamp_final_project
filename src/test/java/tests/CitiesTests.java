@@ -24,10 +24,10 @@ public class CitiesTests extends BaseTest {
         String expectedResultRoute = "admin/cities";
 
         String actualResultUrl = driver.getCurrentUrl();
-
         Assert.assertTrue(actualResultUrl.contains(expectedResultRoute));
 
     }
+
 
     @Test
     //#2: Create new city
@@ -48,7 +48,6 @@ public class CitiesTests extends BaseTest {
         adminCitiesPage.getSaveButton().click();
 
         String actualResultSucces = adminCitiesPage.getSavedSucces().getText();
-
         Assert.assertTrue(actualResultSucces.contains(expectedResultSucces));
 
     }

@@ -21,7 +21,6 @@ public class AdminCitiesPage extends BasePage {
     private By savedSuccesEditedItem = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]");
     private By searchField = By.id("search");
     private By editedCityName = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[2]");
-
     private By nameColumnCity = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr/td[2]");
 
     public AdminCitiesPage(WebDriver webDriver, WebDriverWait webDriverWait) {
