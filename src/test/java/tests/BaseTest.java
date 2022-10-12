@@ -55,12 +55,12 @@ public class BaseTest {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
-/*
+
     @AfterClass
     public void afterClass() {
         driver.quit();
     }
-*/
+
 /*
     @AfterMethod
     public void logOutUser() {
