@@ -16,7 +16,10 @@ public class EditProfile extends BasePage {
     private By country = By.id("country");
     private By twitter = By.name("urlTwitter");
     private By github = By.name("urlGitHub");
-    private By saveButton = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[2]/span/form/div/div/div[8]/button");
+    private By saveButton = By.xpath(
+            "/html/body/div/div[1]/main/div/div[2]/div/div/div[2]/span/form/div/div/div[8]/button");
+    private By successMsg = By.xpath(
+            "//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]");
 
 
     public EditProfile(WebDriver webDriver, WebDriverWait webDriverWait) {
@@ -52,6 +55,10 @@ public class EditProfile extends BasePage {
         return getWebDriver().findElement(saveButton);
     }
 
+    public WebElement getSuccessMsg () {return getWebDriver().findElement(successMsg);
+
+    }
+
     public void editProfileWithRandomData() {
 
         Faker faker = new Faker();
@@ -79,8 +86,6 @@ public class EditProfile extends BasePage {
         getGithub().click();
         getGithub().sendKeys(Keys.CONTROL + "A", Keys.DELETE);
         getGithub().sendKeys("https://github.com/" + faker.name().username());
-
-        getSaveButton().click();
 
     }
 }

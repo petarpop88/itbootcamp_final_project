@@ -37,7 +37,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Local\\webdriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         loginPage = new LoginPage(driver, webDriverWait);
         homePage = new HomePage(driver, webDriverWait);
@@ -55,12 +55,12 @@ public class BaseTest {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
-
-    /*@AfterClass
+/*
+    @AfterClass
     public void afterClass() {
         driver.quit();
     }
-
+*/
 /*
     @AfterMethod
     public void logOutUser() {
